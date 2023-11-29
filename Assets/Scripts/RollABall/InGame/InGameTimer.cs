@@ -7,13 +7,6 @@ public class InGameTimer : MonoBehaviour
 {
     public Text TimerText;
     private float timerTime = 30f;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
         if (timerTime < 0)
@@ -22,7 +15,7 @@ public class InGameTimer : MonoBehaviour
         }
         else
         {
-            TimerText.text = $"{timerTime -= Time.deltaTime}";
+            TimerText.text = $"{StringUtility.SecondsToTwoDecimalPlaces(timerTime -= Time.deltaTime)}";
         }
     }
 }
