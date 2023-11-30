@@ -5,6 +5,7 @@ using UnityEngine;
 public class BallController : MonoBehaviour
 {
     private Rigidbody ballRigidBody;
+    public InGameTimer InGameTimer;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +24,14 @@ public class BallController : MonoBehaviour
         if(collision.gameObject.name == "Cube")
         {
             Debug.Log("Damage");
+        }
+    }
+
+    private void Update()
+    {
+        if(InGameTimer.GetTimerTime <= 0)
+        {
+            Destroy(this.gameObject);
         }
     }
 }
